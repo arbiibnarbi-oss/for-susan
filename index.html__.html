@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Susan & ANTRI</title>
+    <style>
+        /* التنسيقات العامة */
+        :root {
+            --neon-red: #ff0033; /* أحمر نيون قوي */
+            --glow-red: rgba(255, 0, 51, 0.8);
+            --text-glow: rgba(255, 255, 255, 0.9);
+            --bg-dark: #000000; /* أسود مطلق */
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: var(--bg-dark);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* حاوية القلب الكبير البالض */
+        .heart-container {
+            position: relative;
+            width: 300px; /* حجم كبير للقلب */
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* تأثير النبض (Animation) */
+            animation: beat 1.2s ease-in-out infinite;
+            z-index: 10;
+        }
+
+        /* رسم القلب باستخدام CSS و النيون */
+        .heart-shape {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: var(--neon-red);
+            transform: rotate(-45deg);
+            box-shadow: 0 0 20px var(--neon-red), 0 0 40px var(--glow-red), 0 0 80px var(--glow-red);
+        }
+
+        .heart-shape:before,
+        .heart-shape:after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: var(--neon-red);
+            border-radius: 50%;
+            box-shadow: 0 0 20px var(--neon-red), 0 0 40px var(--glow-red), 0 0 80px var(--glow-red);
+        }
+
+        .heart-shape:before {
+            top: -50%;
+            left: 0;
+        }
+
+        .heart-shape:after {
+            top: 0;
+            left: 50%;
+        }
+
+        /* اسم Susan في منتصف القلب */
+        .name-inside {
+            position: absolute;
+            color: white;
+            font-size: 2.8em;
+            font-weight: 900;
+            letter-spacing: -1px;
+            text-shadow: 0 0 5px white, 0 0 10px white, 0 0 20px var(--neon-red), 0 0 30px var(--neon-red);
+            z-index: 20;
+            text-transform: uppercase; /* اختياري: حروف كبيرة لتعطي قوة */
+        }
+
+        /* تأثير النبض واقعي */
+        @keyframes beat {
+            0% { transform: scale(1); }
+            15% { transform: scale(1.15); }
+            30% { transform: scale(1); }
+            45% { transform: scale(1.05); }
+            60% { transform: scale(1); }
+            100% { transform: scale(1); }
+        }
+
+        /* حاوية التوقيع السفلي */
+        .signature-container {
+            position: absolute;
+            bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 5;
+        }
+
+        /* تنسيق التوقيع ANTRI */
+        .signature-text {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.2em;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* زهرة النيون 🌹 */
+        .neon-rose {
+            font-size: 1.5em;
+            color: var(--neon-red);
+            text-shadow: 0 0 5px var(--neon-red), 0 0 15px var(--glow-red);
+            animation: roseGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes roseGlow {
+            0% { text-shadow: 0 0 5px var(--neon-red), 0 0 10px var(--glow-red); }
+            100% { text-shadow: 0 0 10px var(--neon-red), 0 0 30px var(--glow-red); }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="heart-container">
+        <div class="heart-shape"></div>
+        <div class="name-inside">Susan</div>
+    </div>
+
+    <div class="signature-container">
+        <div class="signature-text">ANTRI</div>
+        <div class="neon-rose">🌹</div>
+    </div>
+
+</body>
+</html>
